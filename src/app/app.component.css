@@ -1,0 +1,8 @@
+.cdk-overlay-pane .mat-dialog-container {
+    padding:0;
+}
+
+.sum {
+    background-color: #73e1c7;
+    display: inline-block;
+}

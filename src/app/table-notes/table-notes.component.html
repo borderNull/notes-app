@@ -1,0 +1,51 @@
+<div class='container example-container mat-elevation-z8'>
+    <button ml-auto mat-fab color='primary' class='add-note__btn' (click)='addNote()'>
+        <mat-icon aria-label="add new note">note_add</mat-icon>
+    </button>
+
+  <!-- <p *ngFor='let note of notes | async'>{{note | json}}</p> -->
+  <mat-table #table [dataSource]='tbDataSource' matSort>
+
+    <ng-container matColumnDef='id'>
+      <mat-header-cell *matHeaderCellDef mat-sort-header>ID</mat-header-cell>
+      <mat-cell *matCellDef='let element'> {{element.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef='funds'>
+      <mat-header-cell *matHeaderCellDef>Расходы</mat-header-cell>
+      <mat-cell *matCellDef='let element'>
+        <div>
+           <span style='font-size:12px'>Расход: {{element.consumption}} </span>
+        </div>
+        <div>
+          <span style='font-size:12px'>Доход: {{element.income}}</span>
+          
+        </div>
+      </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef='comment'>
+      <mat-header-cell *matHeaderCellDef>Коменнтарий</mat-header-cell>
+      <mat-cell *matCellDef='let element'>{{element.comment}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef='buttons'>
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef='let element'> 
+        <button (click)='editNote($event, element)' class='data-table-cell__edit-btn' color='primary' mat-icon-button>
+        <mat-icon aria-label="Edit note button icon">mode_edit</mat-icon>
+      </button>
+    </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef='displayedColumns'></mat-header-row>
+    <mat-row *matRowDef='let row; columns: displayedColumns;'class='data-table-row'></mat-row>
+  </mat-table>
+  <mat-paginator #paginator
+                 [pageSize]="5"
+                 [pageSizeOptions]="[5, 10, 20]"
+                 [showFirstLastButtons]="true">
+  </mat-paginator>
+
+</div>
+

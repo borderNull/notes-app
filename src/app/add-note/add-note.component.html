@@ -1,0 +1,40 @@
+
+<div class="card" style='max-width:500px;'>
+    <h5 class="card-header">{{editState? 'Редактировать запись' : 'Добавить запись'}}</h5>
+  <div class="card-body">
+    <div class="jumbotron">
+       
+        <form (ngSubmit)='onSubmit()' [formGroup]='noteForm'>
+            <div class="row">
+            <mat-form-field class='col col-md-12'>
+                <input matInput formControlName="id" name='id' placeholder="id" />
+              </mat-form-field>
+            <mat-form-field class='col col-md-12'>
+                  <input matInput name='consumption' placeholder="Расход" formControlName="consumption"/>
+                  <mat-error *ngIf='consumption.hasError("required")'>Введите число , поле не может быть пустым</mat-error> 
+                  <mat-error *ngIf='consumption.hasError("pattern")'>Неверный формат! Число может быть от -1000 до -1</mat-error>
+            </mat-form-field>
+            <mat-form-field class='col col-md-12'>
+                    <input matInput  formControlName="income" name='income' placeholder="Доход" />
+                    <mat-error *ngIf='income.hasError("required")'>Введите число , поле не может быть пустым</mat-error> 
+                    <mat-error *ngIf='income.hasError("pattern")'>Неверный формат! Число может быть от 1 до 1000</mat-error>
+            </mat-form-field>
+            <mat-form-field class='col col-md-12'>
+                      <textarea matInput formControlName="comment" name='comment' placeholder="Комментарий"></textarea>
+                      <mat-error *ngIf='comment.hasError("required")'>Введите комментарий, поле не может быть пустым</mat-error> 
+                      <mat-error *ngIf='comment.hasError("maxlength")'>Максимальное количество знаков 512</mat-error> 
+            </mat-form-field>
+            <div class="col col-md-12">
+              <div class="row justify-content-end">
+                  <button (click)='deleteNote($event, note)' type='button' class='mr-auto' color='warn' mat-icon-button>
+                      <mat-icon aria-label="Example icon-button with a heart icon">delete</mat-icon>
+                    </button>
+                  <button mat-button color='primary' type='button' style='margin-right:10px' (click)='close()'>Закрыть</button>
+                  <button  type='submit' mat-raised-button color='primary' [disabled]='!noteForm.valid'>Сохранить</button>
+              </div>
+            </div>
+              </div>  
+        </form>
+    </div>
+  </div>
+</div>
