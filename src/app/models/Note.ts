@@ -5,6 +5,4 @@ export interface Note {
     income: number;
     id?: number;
     key: string;
-    // name?: string;
-    // price?: number;
   }

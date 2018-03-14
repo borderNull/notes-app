@@ -1,4 +1,3 @@
-.btn.btn-primary.btn-md.submit-btn {
-background: #3f51b5;
-border-color: #3f51b5;
+.note__delete-btn {
+    outline-color: transparent;
 }

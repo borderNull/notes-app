@@ -43,7 +43,6 @@ export class AddNoteComponent implements OnInit {
        income: this.note.income,
        comment: this.note.comment
     });
-    console.log(this)
   }
   get income() { return this.noteForm.get('income'); }
 

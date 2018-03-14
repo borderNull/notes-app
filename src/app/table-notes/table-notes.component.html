@@ -3,7 +3,6 @@
         <mat-icon aria-label="add new note">note_add</mat-icon>
     </button>
 
-  <!-- <p *ngFor='let note of notes | async'>{{note | json}}</p> -->
   <mat-table #table [dataSource]='tbDataSource' matSort>
 
     <ng-container matColumnDef='id'>

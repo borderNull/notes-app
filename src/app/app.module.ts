@@ -10,28 +10,27 @@ import {MatTableModule} from '@angular/material/table';
 import {MatIconModule, MatIconRegistry  } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
-
-
-// import {AddNoteDialogComponent} from './add-note/add-note.component';
-
 import {MatDialogModule} from '@angular/material/dialog';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA, MatSortModule, MatPaginatorIntl,
-       MatPaginatorModule, MatTableDataSource, MatProgressSpinnerModule
-      } from '@angular/material';
-
 import { AppComponent } from './app.component';
-import { AppNavbarComponent } from './app-navbar/app-navbar.component';
 import { TableNotesComponent, MatPaginatorIntlRu } from './table-notes/table-notes.component';
 import { TableService} from './table.service';
 import { AddNoteComponent } from './add-note/add-note.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
+import {MatDialog,
+  MatDialogRef,
+  MAT_DIALOG_DATA,
+  MatSortModule,
+  MatPaginatorIntl,
+  MatPaginatorModule,
+  MatTableDataSource,
+  MatProgressSpinnerModule
+} from '@angular/material';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    AppNavbarComponent,
     TableNotesComponent,
     AddNoteComponent
   ],
@@ -52,8 +51,6 @@ import {MatInputModule} from '@angular/material/input';
     MatSortModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
-    // MatPaginatorIntl,
-    // MatPaginatorIntlRu
 
   ],
   providers: [TableService, MatIconRegistry, { provide: MatPaginatorIntl, useClass: MatPaginatorIntlRu}],

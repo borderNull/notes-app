@@ -56,7 +56,6 @@ export class TableNotesComponent implements OnInit {
       this.tbDataSource.paginator = this.paginator;
       this.tbDataSource.sort = this.sort;
       this.parentNotes.emit(notes);
-      console.log(this);
     });
 
   }
