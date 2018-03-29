@@ -1,6 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {AngularFireModule} from 'angularfire2';
+import {AngularFireAuth} from 'angularfire2/auth';
+import { ServiceWorkerModule } from '@angular/service-worker';
 import {AngularFirestoreModule} from 'angularfire2/firestore';
 import {AngularFireAuthModule} from 'angularfire2/auth';
 import {environment} from './../environments/environment.prod';
@@ -28,6 +30,7 @@ import {MatDialog,
 } from '@angular/material';
 
 
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -51,6 +54,7 @@ import {MatDialog,
     MatSortModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
 
   ],
   providers: [TableService, MatIconRegistry, { provide: MatPaginatorIntl, useClass: MatPaginatorIntlRu}],
