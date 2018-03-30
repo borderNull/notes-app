@@ -15,7 +15,11 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatDialogModule} from '@angular/material/dialog';
 import { AppComponent } from './app.component';
 import { TableNotesComponent, MatPaginatorIntlRu } from './table-notes/table-notes.component';
+import { UserLoginComponent } from './user-login/user-login.component';
 import { TableService} from './table.service';
+// import { MessagingService} from './messaging.service';
+// import { AuthService} from './auth.service';
+import { CoreModule } from './core/core.module';
 import { AddNoteComponent } from './add-note/add-note.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
@@ -35,16 +39,17 @@ import {MatDialog,
   declarations: [
     AppComponent,
     TableNotesComponent,
-    AddNoteComponent
+    AddNoteComponent,
+    UserLoginComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     FormsModule,
-    AngularFireModule.initializeApp(environment.firebase, 'segmento-app'),
-    AngularFirestoreModule.enablePersistence(),
+    AngularFireAuthModule,
     NgbModule.forRoot(),
     MatTableModule,
+    CoreModule,
     MatIconModule,
     MatButtonModule,
     MatDialogModule,
@@ -54,7 +59,9 @@ import {MatDialog,
     MatSortModule,
     MatProgressSpinnerModule,
     ReactiveFormsModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule.enablePersistence(),
+    // ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
 
   ],
   providers: [TableService, MatIconRegistry, { provide: MatPaginatorIntl, useClass: MatPaginatorIntlRu}],

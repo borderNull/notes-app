@@ -1,7 +1,11 @@
 import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from 'angularfire2/firestore';
+import {AngularFireAuth} from 'angularfire2/auth';
 import {Observable} from 'rxjs/Observable';
 import {Note} from './models/Note';
+
+
+
 
 
 
@@ -10,6 +14,7 @@ export class TableService {
    notesCollection: AngularFirestoreCollection<Note>;
    notes: Observable<Note[]>;
    noteDoc: AngularFirestoreDocument<Note>;
+
 
   constructor(public afs: AngularFirestore)  {
     this.notesCollection = this.afs.collection('income', ref => ref.orderBy('id', 'asc'));

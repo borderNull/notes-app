@@ -4,7 +4,7 @@
   "name": "Notes Angular PWA WebPush",
   "scope": "/",
   "display": "fullscreen",
-  "start_url": "http://localhost:8080/",
+  "start_url": "/?utm_source=homescreen",
   "short_name": "Angular PWA",
   "theme_color": "transparent",
   "description": "Sample PWA App",

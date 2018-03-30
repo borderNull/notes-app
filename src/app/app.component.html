@@ -1,6 +1,12 @@
 <!--The content below is only a placeholder and can be replaced.-->
 <div class="container">
-    <h1>Version V1 is runnning ...</h1>
+    <app-user-login></app-user-login> 
+    <div *ngIf="msg.currentMessage | async as message" class="notification is-dark slideInRight">
+        <img [src]="message.notification.icon" width="100px">
+        <h1>{{ message.notification.title }}</h1>
+        <p>{{ message.notification.body }}</p>
+    </div>
+
   <div class="starter-template">
       <h1>Количество средств <span class='sum'>{{sum}}</span></h1>
   </div>
